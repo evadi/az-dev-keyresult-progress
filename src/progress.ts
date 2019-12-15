@@ -46,6 +46,11 @@ function updateProgressOnForm(storedFields: IStoredFieldReferences) {
                 let progress = calculateProgress(currentValue, targetValue);
 
                 service.setFieldValue(storedFields.progressField, progress);
+
+                //now set the work item status if necessary
+                if(progress == 100) {
+                  service.setFieldValue("System.State", "Done");
+                }
               });
           }
         });
@@ -75,6 +80,12 @@ function calculateProgress(current: number, target: number): number {
       return 0;
     }
     else {
+
+      //sanity check to ensure progress can't be > 100%
+      if (result > 100) {
+        result = 100;
+      }
+
       return result;
     }
   }

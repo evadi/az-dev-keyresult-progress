@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   target: 'web',
   entry: {
-    rice: './src/progress.ts',
+    progress: './src/progress.ts',
     settings: './src/settings.ts'
   },
   output: {
