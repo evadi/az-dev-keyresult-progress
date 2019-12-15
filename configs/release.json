@@ -1,0 +1,13 @@
+{
+  "public": false,
+  "files": [
+    {
+      "path": "src",
+      "addressable": true
+    },
+    {
+      "path": "libs",
+      "addressable": true
+    }
+  ]
+}

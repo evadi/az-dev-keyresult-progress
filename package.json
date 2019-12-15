@@ -1,0 +1,50 @@
+{
+  "name": "az-dev-keyresult-progress",
+  "version": "1.0.1",
+  "description": "An Azure DevOps extension to help calculate the progress of a Key Result",
+  "main": "webpack.config.js",
+  "scripts": {
+    "clean": "rimraf dist *.vsix",
+    "build": "npm run clean && mkdir dist && webpack --progress --colors --output-path ./dist -p",
+    "publish": "npm run build && node ./scripts/publish",
+    "postinstall": "typings install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evadi/az-dev-keyresult-progress.git"
+  },
+  "keywords": [
+    "Work Items",
+    "OKR",
+    "Key Result",
+    "Progress",
+    "Product management"
+  ],
+  "author": "orchidsoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evadi/az-dev-prioritisation-extension/issues"
+  },
+  "homepage": "https://github.com/evadi/az-dev-prioritisation-extension#README",
+  "dependencies": {
+    "vss-web-extension-sdk": "^5.141.0",
+    "@types/jquery": "^3.3.22",
+    "@types/q": "1.5.1"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^1.0.1",
+    "cwd": "^0.10.0",
+    "node-sass": "^4.10.0",
+    "rimraf": "^2.7.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "tfx-cli": "^0.6.3",
+    "ts-loader": "^5.3.0",
+    "typescript": "^3.1.6",
+    "typings": "^2.1.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}

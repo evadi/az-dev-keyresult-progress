@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <script src="../libs/VSS.SDK.min.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      VSS.init({
+        explicitNotifyLoaded: true,
+        usePlatformScripts: true,
+        configureModuleLoader: true
+      });
+
+      VSS.require(["src/settings"], function (s) {
+        var settings = new s.Settings();
+        settings.initialize();
+      });
+    </script>
+
+    <div class="hub-view">
+      <div class="hub-title">Key Result Progress Settings</div>
+
+      <div class="hub-content">
+        <div class="description-text bowtie">
+          You must add a custom fields for the 'current' value and 'target' value as well as the progress
+        </div>
+
+        <div id="progress-settings"></div>
+
+      </div>
+    </div>
+  </body>
+
+</html>

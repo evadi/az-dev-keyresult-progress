@@ -1,0 +1,79 @@
+{
+  "manifestVersion": 1,
+  "version": "1.0.0",
+  "name": "Key Result Progress Calculator",
+  "scopes": [
+    "vso.work",
+    "vso.work_write"
+  ],
+  "description": "An Azure DevOps extension to help calculate the progress of a Key Result",
+  "publisher": "orchidsoft",
+  "id": "az-dev-keyresult-progress",
+  "icons": {
+    "default": "marketplace/logo.png"
+  },
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "tags": [
+    "Work Items",
+    "OKR",
+    "Key Result",
+    "Progress",
+    "Product management"
+  ],
+  "content": {
+    "details": {
+      "path": "README.md"
+    },
+    "license": {
+      "path": "LICENSE.md"
+    }
+  },
+  "links": {
+    "repository": {
+      "uri": "https://github.com/evadi/az-dev-keyresult-progress"
+    },
+    "learn": {
+      "uri": "https://github.com/evadi/az-dev-keyresult-progress"
+    },
+    "support": {
+      "uri": "https://github.com/evadi/az-dev-keyresult-progress/issues"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/evadi/az-dev-keyresult-progress.git"
+  },
+  "categories": [
+    "Azure Boards"
+  ],
+  "contributions": [
+    {
+      "id": "keyresult-work-item-form-observer",
+      "type": "ms.vss-work-web.work-item-notifications",
+      "description": "Update the 'Progress' field when other fields on the form change.",
+      "targets": [
+        "ms.vss-work-web.work-item-form"
+      ],
+      "properties": {
+        "uri": "src/progress.html"
+      }
+    },
+    {
+      "id": "keyresult-settings-hub",
+      "type": "ms.vss-web.hub",
+      "description": "Collection level settings experience for managing fields used to calculate Progress.",
+      "targets": [
+        "ms.vss-web.collection-admin-hub-group"
+      ],
+      "properties": {
+        "name": "Key Result Progress Settings",
+        "uri": "src/settings.html"
+      }
+    }
+  ],
+  "files": []
+}
