@@ -39,22 +39,40 @@ function updateProgressOnForm(storedFields: IStoredFieldReferences) {
               .then((values) => {
                 const currentValueFieldValue = values[storedFields.currentValueField];
                 const targetValueFieldValue = values[storedFields.targetValueField];
+                const progressValueFieldValue = values[storedFields.progressField];
 
                 let currentValue = Number(currentValueFieldValue);
                 let targetValue = Number(targetValueFieldValue);
 
                 let progress = calculateProgress(currentValue, targetValue);
-
-                service.setFieldValue(storedFields.progressField, progress);
-
-                //now set the work item status if necessary
-                if(progress == 100) {
-                  service.setFieldValue("System.State", "Done");
+                if(currentValue != 0 && targetValue != 0) {
+                  setProgress(progressValueFieldValue, progress, service, storedFields);
+                  
+                  setState(progress, service);
+                }
+                else if (currentValue == 0) {
+                  setProgress(progressValueFieldValue, progressValueFieldValue, service, storedFields);
+                  setState(progressValueFieldValue, service);
+                }
+                else {
+                  setState(progressValueFieldValue, service);
                 }
               });
           }
         });
     });
+}
+
+function setProgress(currentProgress, newProgress, service, storedFields) {
+  if (currentProgress && (newProgress != currentProgress)) {
+    service.setFieldValue(storedFields.progressField, newProgress);
+  }
+}
+
+function setState(progress, service) {
+  if(progress == 100) {
+    service.setFieldValue("System.State", "Done");
+  }
 }
 
 function calculateProgress(current: number, target: number): number {

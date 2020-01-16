@@ -1,6 +1,6 @@
 {
   "name": "az-dev-keyresult-progress",
-  "version": "1.0.1",
+  "version": "1.0.8",
   "description": "An Azure DevOps extension to help calculate the progress of a Key Result",
   "main": "webpack.config.js",
   "scripts": {
